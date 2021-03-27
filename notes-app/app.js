@@ -9,3 +9,5 @@ const chalk=require('chalk')
 
 //console.log(validator.isEmail('devednra6969@gmail.com'))
 console.log(chalk.black.bgGreen('Success..'))
+console.log('Hi')
+console.log('New line')
