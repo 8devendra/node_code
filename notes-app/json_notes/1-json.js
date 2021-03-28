@@ -7,7 +7,14 @@ const fs=require('fs')
 // const bookJSON=JSON.stringify(book)
 // fs.writeFileSync('1-json-date.json',bookJSON);
 
+// const dataBuffer=fs.readFileSync('1-json-date.json')
+// const dataJSON=dataBuffer.toString()
+// const data=JSON.parse(dataJSON)
+// console.log(data.author)
+
 const dataBuffer=fs.readFileSync('1-json-date.json')
 const dataJSON=dataBuffer.toString()
 const data=JSON.parse(dataJSON)
-console.log(data.author)
+data.name='Deve'
+const df=JSON.stringify(data)
+fs.writeFileSync('1-json-date.json',df)

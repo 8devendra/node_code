@@ -1,5 +1,7 @@
 const yargs=require('yargs')
 
+const notes=require('./fn-notes.js')
+
 yargs.version('1.1.0')
 yargs.command({
     command:'add',
@@ -19,6 +21,7 @@ yargs.command({
         console.log('Adding new notes!')
         console.log('Title: '+argv.title)
         console.log('Body:'+argv.body)
+        notes.addNotes(argv.title,argv.body)
     }
 })
 
@@ -47,4 +50,3 @@ yargs.command({
 })
 
 yargs.parse();                  //for output display
-//console.log(yargs.argv)
