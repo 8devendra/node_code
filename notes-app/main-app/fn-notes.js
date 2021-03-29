@@ -7,12 +7,21 @@ const getNotes=function () {
 
 const addNotes=function(title,body){
     const notes=loadNotes()
-    notes.push ({
-        title:title,
-        body:body
+    const duplicate=notes.filter(function(note){
+        return note.title===title
     })
-    saveNotes(notes)
-    return 'Notes Added'
+
+    if(duplicate.length===0){
+        notes.push ({
+            title:title,
+            body:body
+        })
+        saveNotes(notes)
+        return 'Notes Added'
+
+    }else{
+        console.log('Title has been taken')
+    }  
 }
 
 const saveNotes=function(notes){
@@ -29,6 +38,11 @@ const loadNotes=function(){
     catch (r){
         return []
     }
+}
+
+const removeNotes=function(notesTi){
+    const notes=loadNotes()
+        
 }
 
 module.exports={
