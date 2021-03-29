@@ -1,4 +1,5 @@
 const fs=require('fs')
+const chalk=require('chalk')
 //const { title } = require('process')
 
 const getNotes=function () {
@@ -20,7 +21,7 @@ const addNotes=function(title,body){
         return 'Notes Added'
 
     }else{
-        console.log('Title has been taken')
+        console.log(chalk.bgRed.bold.white('Title has been taken'))
     }  
 }
 
@@ -41,11 +42,25 @@ const loadNotes=function(){
 }
 
 const removeNotes=function(notesTi){
+    //console.log(notesTi)
     const notes=loadNotes()
+    const rmv=notes.filter(function(notes){
+        return notes.title!==notesTi
+    })
+    if(notes.length>rmv.length){
+        saveNotes(rmv)
+        console.log(chalk.bgGreen.bold.white('Note Remove'))
+    }else{
+        console.log(chalk.bgRed.bold.white('No title Found..'))
+    }
+    
+        //delet code
         
+ 
 }
 
 module.exports={
     getNotes:getNotes,
-    addNotes:addNotes
+    addNotes:addNotes,
+    removeNotes:removeNotes
 }
