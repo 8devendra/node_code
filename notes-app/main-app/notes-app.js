@@ -1,4 +1,5 @@
 const yargs=require('yargs')
+const chalk=require('chalk')
 
 const notes=require('./fn-notes.js')
 
@@ -17,12 +18,11 @@ yargs.command({
             demandOption:true,
         }
     },
-    handler:function(argv){
-        
+    handler(argv){        
         console.log('Title: '+argv.title)
         console.log('Body:'+argv.body)
         notes.addNotes(argv.title,argv.body)
-        console.log(chalk.bgGreen.bold.white('Adding new notes!'))
+        
     }
 })
 
@@ -36,7 +36,7 @@ yargs.command({
             type:'string'
         }
     },
-    handler:function(argv){
+    handler(argv){
         notes.removeNotes(argv.title)
         //console.log('Removing Notes!')
     }
@@ -45,7 +45,7 @@ yargs.command({
 yargs.command({
     command:'list',
     describe:'List all the notes',
-    handler:function(){
+    handler(){
         console.log('List of all commands')
     }
 })
@@ -53,7 +53,7 @@ yargs.command({
 yargs.command({
     command:'read',
     describe:'reading a perticular note',
-    handler:function () {
+    handler() {
         console.log('Reading command')        
     }
 })

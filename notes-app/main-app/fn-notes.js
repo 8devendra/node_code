@@ -2,15 +2,18 @@ const fs=require('fs')
 const chalk=require('chalk')
 //const { title } = require('process')
 
-const getNotes=function () {
+const getNotes= () =>{
     return 'Your Notes..'
 }
 
-const addNotes=function(title,body){
+const addNotes=(title,body)=>{
     const notes=loadNotes()
-    const duplicate=notes.filter(function(note){
-        return note.title===title
-    })
+    const duplicate=notes.filter((note)=>{return note.title===title})
+
+
+    // const duplicate=notes.filter(function(note){
+    //     return note.title===title
+    // })
 
     if(duplicate.length===0){
         notes.push ({
@@ -18,19 +21,19 @@ const addNotes=function(title,body){
             body:body
         })
         saveNotes(notes)
-        return 'Notes Added'
+        console.log(chalk.bgGreen.bold.white('Notes Added'))
 
     }else{
         console.log(chalk.bgRed.bold.white('Title has been taken'))
     }  
 }
 
-const saveNotes=function(notes){
+const saveNotes=(notes)=>{
     const dataJSON=JSON.stringify(notes)
     fs.writeFileSync('notes.json',dataJSON)
 }
 
-const loadNotes=function(){
+const loadNotes=()=>{
     try {
     const databuffer=fs.readFileSync('notes.json')
     const dataJSON=databuffer.toString()
@@ -41,7 +44,7 @@ const loadNotes=function(){
     }
 }
 
-const removeNotes=function(notesTi){
+const removeNotes=(notesTi)=>{
     //console.log(notesTi)
     const notes=loadNotes()
     const rmv=notes.filter(function(notes){
