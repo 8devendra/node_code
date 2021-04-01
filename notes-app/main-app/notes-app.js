@@ -2,6 +2,7 @@ const yargs=require('yargs')
 const chalk=require('chalk')
 
 const notes=require('./fn-notes.js')
+const { demandOption } = require('yargs')
 
 yargs.version('1.1.0')
 yargs.command({
@@ -45,16 +46,34 @@ yargs.command({
 yargs.command({
     command:'list',
     describe:'List all the notes',
-    handler(){
+    builder:{
+        all:{
+            describe:'All notes displyed..',
+            demandOption:false,
+            type:'string'
+        }      
+    },
+    handler(argv){
         console.log('List of all commands')
+        notes.getNotes()
+
     }
 })
 
 yargs.command({
     command:'read',
     describe:'reading a perticular note',
-    handler() {
-        console.log('Reading command')        
+    builder:{
+        title:{
+            describe:'Title of note that you want to read',
+            demandOption:true,
+            type:'string'
+        }
+    },
+
+    handler(argv) {
+        //console.log('Reading command')        
+        notes.readNote(argv.title)
     }
 })
 
