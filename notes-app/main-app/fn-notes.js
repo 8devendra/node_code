@@ -30,7 +30,7 @@ const addNotes=(title,body)=>{
     const notes=loadNotes()
     //const duplicate=notes.filter((note)=>{return note.title===title})
     const duplicate=notes.find((note)=>note.title===title)
-
+    
 
     // const duplicate=notes.filter(function(note){
     //     return note.title===title
