@@ -12,7 +12,7 @@
 
 
 const request=require('request')
-const key=''
+const key=""
 
 const url ="http://api.weatherstack.com/current?access_key="+key+"&query=15.918875,%2073.814398"
 
@@ -20,5 +20,6 @@ request({url:url},(error,response)=>{
     const data=JSON.parse(response.body)
 
     console.log(data.current)
+    console.log('It is currently '+data.current.temperature+' degrees out. There is a '+data.current.precip+' chance of rain.')
 
 })
