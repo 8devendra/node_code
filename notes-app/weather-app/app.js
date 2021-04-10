@@ -16,20 +16,26 @@ const getWeather=require('./utill/weatherCode')
 
 
 
-// geoLocation('Kudal',(error,data)=>{
-//     if(error){
-//         console.log(error)
-//     }else{
-//         console.log(data)
-//     }
-
-
-
-
-getWeather('16.017475','73.67801449999999',(error,data)=>{
+geoLocation('Sawantwadi',(error,data)=>{
     if(error){
         console.log(error)
     }else{
-        console.log('It is currently ' + data.temp + ' degrees out. There is a ' + data.precip + ' chance of rain.')
+        //console.log(data)
+        const loca=data.location
+        getWeather(data.latitude,data.longitude,(error,data)=>{
+            if(error){
+                console.log(error)
+            }else {
+                console.log('It is currently ' + data.temp + ' degrees out. There is a ' + data.precip + ' chance of rain at '+loca+' place. ')
+            }
+        })
+        
     }
 })
+
+
+
+
+
+
+

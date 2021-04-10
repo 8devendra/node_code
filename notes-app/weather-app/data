@@ -730,3 +730,78 @@ ncomingMessage {
   [Symbol(RequestTimeout)]: undefined
 }
 PS D:\Node\Programs\notes-app\weather-app>                   
+
+
+
+
+{
+  type: 'FeatureCollection',       
+  query: [ 'los', 'angeles' ],     
+  features: [
+    {
+      id: 'place.6694790146427640',
+      type: 'Feature',
+      place_type: [Array],
+      relevance: 1,
+      properties: [Object],
+      text: 'Los Angeles',
+      place_name: 'Los Angeles, California, United States',
+      bbox: [Array],
+      center: [Array],
+      geometry: [Object],
+      context: [Array]
+    },
+    {
+      id: 'place.10952642230180310',
+      type: 'Feature',
+      place_type: [Array],
+      relevance: 1,
+      properties: [Object],
+      text: 'Los Ángeles',
+      place_name: 'Los Ángeles, Bío Bío, Chile',
+      bbox: [Array],
+      center: [Array],
+      geometry: [Object],
+      context: [Array]
+    },
+    {
+      id: 'poi.300647807514',
+      type: 'Feature',
+      place_type: [Array],
+      relevance: 1,
+      properties: [Object],
+      text: 'Los Angeles International Airport (LAX)',
+      place_name: 'Los Angeles International Airport (LAX), 1 World Way, Los Angeles, California 90045, United States',
+      center: [Array],
+      geometry: [Object],
+      context: [Array]
+    },
+    {
+      id: 'neighborhood.8442728253180310',
+      type: 'Feature',
+      place_type: [Array],
+      relevance: 1,
+      properties: [Object],
+      text: 'Los Ángeles',
+      place_name: 'Los Ángeles, Madrid, Madrid, Spain',
+      bbox: [Array],
+      center: [Array],
+      geometry: [Object],
+      context: [Array]
+    },
+    {
+      id: 'neighborhood.2104633',
+      type: 'Feature',
+      place_type: [Array],
+      relevance: 1,
+      properties: {},
+      text: 'Los Angeles Heights - Keystone',
+      place_name: 'Los Angeles Heights - Keystone, San Antonio, Texas 78201, United States',
+      bbox: [Array],
+      center: [Array],
+      geometry: [Object],
+      context: [Array]
+    }
+  ],
+  attribution: 'NOTICE: © 2021 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare.'
+}
