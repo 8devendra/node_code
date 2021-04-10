@@ -10,28 +10,31 @@
 // },0)
 // console.log("Stoping")
 const request = require('request')
-const geoLocation=require('./utill/geocode')
-const getWeather=require('./utill/weatherCode')
+const geoLocation = require('./utill/geocode')
+const getWeather = require('./utill/weatherCode')
 
+const address = process.argv[2]
+if (!address) {
+    console.log('Please Provice City Name. eg: node ./app.js CityName')
+} else {
 
+    geoLocation(address, (error, data) => {
+        if (error) {
+            console.log(error)
+        } else {
+            //console.log(data)
+            const loca = data.location
+            getWeather(data.latitude, data.longitude, (error, data) => {
+                if (error) {
+                    console.log(error)
+                } else {
+                    console.log('It is currently ' + data.temp + ' degrees out. There is a ' + data.precip + ' chance of rain at ' + loca + ' place. ')
+                }
+            })
 
-
-geoLocation('Sawantwadi',(error,data)=>{
-    if(error){
-        console.log(error)
-    }else{
-        //console.log(data)
-        const loca=data.location
-        getWeather(data.latitude,data.longitude,(error,data)=>{
-            if(error){
-                console.log(error)
-            }else {
-                console.log('It is currently ' + data.temp + ' degrees out. There is a ' + data.precip + ' chance of rain at '+loca+' place. ')
-            }
-        })
-        
-    }
-})
+        }
+    })
+}
 
 
 
