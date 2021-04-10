@@ -9,17 +9,27 @@
 //     console.log("0 ms Timeout")
 // },0)
 // console.log("Stoping")
+const request = require('request')
+const geoLocation=require('./utill/geocode')
+const getWeather=require('./utill/weatherCode')
 
 
-const request=require('request')
-const key=""
 
-const url ="http://api.weatherstack.com/current?access_key="+key+"&query=15.918875,%2073.814398"
 
-request({url:url},(error,response)=>{
-    const data=JSON.parse(response.body)
+// geoLocation('Kudal',(error,data)=>{
+//     if(error){
+//         console.log(error)
+//     }else{
+//         console.log(data)
+//     }
 
-    console.log(data.current)
-    console.log('It is currently '+data.current.temperature+' degrees out. There is a '+data.current.precip+' chance of rain.')
 
+
+
+getWeather('16.017475','73.67801449999999',(error,data)=>{
+    if(error){
+        console.log(error)
+    }else{
+        console.log('It is currently ' + data.temp + ' degrees out. There is a ' + data.precip + ' chance of rain.')
+    }
 })
