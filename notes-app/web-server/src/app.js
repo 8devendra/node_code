@@ -1,14 +1,19 @@
-//const { response } = require('express')
+const path=require('path')
 const express = require('express')
 const app=express()
 
-app.get('',(req,res)=>{
+
+const publiPath=path.join(__dirname,'../public')
+console.log(publiPath)
+
+app.use(express.static(publiPath))
+/*(app.get('',(req,res)=>{
     res.send('Hello Express!')
 })
 
 app.get('/about',(req,res)=>{
     res.send('<h1>about Page..</h1>')
-})
+})*/
 
 app.get('/weather',(req,res)=>{
     res.send([{
