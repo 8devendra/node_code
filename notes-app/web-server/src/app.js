@@ -7,11 +7,14 @@ app.get('',(req,res)=>{
 })
 
 app.get('/about',(req,res)=>{
-    res.send('about Page..')
+    res.send('<h1>about Page..</h1>')
 })
 
 app.get('/weather',(req,res)=>{
-    res.send('Weather Page')
+    res.send([{
+        location:'Sawantwadi',
+        tempratiure:'48'
+    }])
 })
 
 app.listen(3000,()=>{
